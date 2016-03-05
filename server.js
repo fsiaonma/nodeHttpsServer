@@ -1,23 +1,29 @@
-var http = require('https');
+var http = require('http');
 var https = require('https');
 var fs = require('fs');
 
-var express = require('express'),
-app = express();
+var express = require('express');
+var app = express();
 app.use(express.static(__dirname + '/public'));
 
-var options = {
+// 设置路由
+app.use(require('./router')());
+
+app.get("/", function(req, res) {
+	res.send("111");
+});
+
+// 创建 https 服务器
+var httpsServer = https.createServer({
 	pfx: fs.readFileSync('./keys/server.pfx'),
 	passphrase: '123456'
-};
+}, app);
+httpsServer.listen(443, function() {
+	console.log("http server listen: 433");
+});
 
-https.createServer(options,function(req,res){
-	res.writeHead(200);
-	res.send({
-		a: 1,
-		b: 2,
-		c: 3
-	});
-}).listen(3000,'127.0.0.1');
-
-http.createServer(app).listen(80);
+// 创建 http 服务器
+var httpServer = http.createServer(app);
+httpServer.listen(80, function() {
+	console.log("http server listen: 80");
+});
