@@ -21,9 +21,3 @@ var httpsServer = https.createServer({
 httpsServer.listen(443, function() {
 	console.log("http server listen: 433");
 });
-
-// 创建 http 服务器
-var httpServer = http.createServer(app);
-httpServer.listen(80, function() {
-	console.log("http server listen: 80");
-});
