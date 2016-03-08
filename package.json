@@ -1,9 +1,9 @@
 {
-  "name": "vipme-https",
+  "name": "nodeHttps",
   "version": "v0.0.1",
-  "description": "vipme-https",
-  "homepage": "vipme-https",
-  "author": "rahul",
+  "description": "nodeHttps",
+  "homepage": "nodeHttps",
+  "author": "sam",
   "devDependencies": {
     "express": "^4.13.1"
   }
