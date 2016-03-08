@@ -6,7 +6,8 @@ bin-release/
 # Other files and folders
 .settings/
 node_modules/
-public/
+public/banners/
+public/productlist/
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
